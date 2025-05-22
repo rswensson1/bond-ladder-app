@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: bond-api
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port 8000
+    plan: free
+    envVars:
+      - key: FRED_API_KEY
+        value: your_actual_fred_api_key
+
+  - type: web
+    name: bond-ui
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: streamlit run streamlit_app.py --server.port 10000
+    plan: free
