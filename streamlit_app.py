@@ -53,20 +53,23 @@ if st.button("Build Ladder"):
             st.dataframe(data)
 
             # Plot yield curve with ladder overlay
-            st.subheader("Yield Curve with Ladder Rungs")
+            st.subheader("Treasury Yield Curve and Investment Allocation")
             ladder_data = [row for row in data if row["maturity"] != "TOTAL"]
             labels = [row["maturity"] for row in ladder_data]
             yields = [row["yield_"] for row in ladder_data]
 
             plt.figure(figsize=(10, 5))
-            plt.plot(labels, yields, marker='o', linestyle='-', label='Ladder Rungs')
+            plt.plot(labels, yields, marker='o', linestyle='-', label='Ladder Allocations')
             plt.xlabel("Maturity")
             plt.ylabel("Yield (%)")
-            plt.title("Treasury Yield Curve with Ladder Rungs")
+            plt.title("Treasury Yield Curve and Ladder Allocation")
             plt.grid(True)
             plt.legend()
             st.pyplot(plt)
+st.caption("\*Yield data sourced from the Federal Reserve Economic Data (FRED) API.")
         else:
             st.error(f"Error: {response.status_code}")
     except Exception as e:
         st.error(f"Request failed: {e}")
+
+
