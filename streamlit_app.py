@@ -66,7 +66,7 @@ if st.button("Build Ladder"):
             plt.grid(True)
             plt.legend()
             st.pyplot(plt)
-st.caption("\*Yield data sourced from the Federal Reserve Economic Data (FRED) API.")
+            st.caption("*Yield data sourced from the Federal Reserve Economic Data (FRED) API.")
         else:
             st.error(f"Error: {response.status_code}")
     except Exception as e:
