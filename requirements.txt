@@ -4,4 +4,5 @@ pandas
 pydantic
 requests
 streamlit
-python-multipart
+python-dotenv
+matplotlib
